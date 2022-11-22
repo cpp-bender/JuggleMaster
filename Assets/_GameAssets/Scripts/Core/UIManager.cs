@@ -20,7 +20,7 @@ namespace HyperBase
 
         private void OnGameEvent()
 		{
-			Debug.Log("Game init for ui");
+
 		}
 	}
 }

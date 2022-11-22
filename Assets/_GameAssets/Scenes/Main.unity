@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 494151981}
   - component: {fileID: 494151980}
-  - component: {fileID: 494151982}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -218,18 +217,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &494151982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494151979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &967862171
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +259,6 @@ GameObject:
   - component: {fileID: 1423261800}
   - component: {fileID: 1423261799}
   - component: {fileID: 1423261798}
-  - component: {fileID: 1423261801}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -338,26 +324,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423261797}
-  m_LocalRotation: {x: 0.012814591, y: -0.99665385, z: 0.07817111, w: 0.02015294}
-  m_LocalPosition: {x: 0.27032113, y: 1.6622416, z: 9.411789}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 8.901}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1423261801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423261797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1839256297
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,11 +608,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7790640618609950862, guid: 758de7149b40d5049bf858b53f232a98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.274
       objectReference: {fileID: 0}
     - target: {fileID: 7790640618609950862, guid: 758de7149b40d5049bf858b53f232a98, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.25
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7790640618609950862, guid: 758de7149b40d5049bf858b53f232a98, type: 3}
       propertyPath: m_LocalRotation.w

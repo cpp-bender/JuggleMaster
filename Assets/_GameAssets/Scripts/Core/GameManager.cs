@@ -1,4 +1,5 @@
 using DG.Tweening.Core.Enums;
+using System.Collections;
 using DG.Tweening;
 using SimpleEvent;
 using UnityEngine;
@@ -9,11 +10,14 @@ namespace HyperBase
     public class GameManager : MonoBehaviour
     {
         public VoidEventChannelSO gameInitEvent;
+        public VoidEventChannelSO gameStartEvent;
 
-        private void Start()
+        private IEnumerator Start()
         {
             InitDOTween();
             gameInitEvent.Raise();
+            yield return new WaitForMouseDown();
+            gameStartEvent.Raise();
         }
 
         private void InitDOTween()
