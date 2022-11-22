@@ -14,6 +14,7 @@ namespace HyperBase
 
         private IEnumerator Start()
         {
+            Application.targetFrameRate = 60;
             InitDOTween();
             gameInitEvent.Raise();
             yield return new WaitForMouseDown();
