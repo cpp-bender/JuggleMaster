@@ -1,6 +1,5 @@
 using UnityEngine;
 using Lean.Touch;
-using System.Security;
 
 namespace JuggleMaster
 {
@@ -13,6 +12,7 @@ namespace JuggleMaster
         [Header("COMPONENTS")]
         public LeanFingerUpdate leanFingerUpdate;
         public LeanFingerDown leanFingerDown;
+        public LeanFingerUp leanFingerUp;
 
         [Header("DEBUG")]
         public Shoe closestShoe;
@@ -23,7 +23,7 @@ namespace JuggleMaster
 
             float f2 = (leftShoe.transform.position - pos).sqrMagnitude;
 
-            if (f1<f2)
+            if (f1 < f2)
             {
                 closestShoe = rightShoe;
             }
@@ -40,9 +40,17 @@ namespace JuggleMaster
             closestShoe.transform.position = Vector3.Lerp(closestShoe.transform.position, desPos, 5f * Time.deltaTime);
         }
 
-        public void Stop()
+        public void Rotate(LeanFinger finger)
+        {
+            Vector3 desPos = finger.GetWorldPosition(4f);
+            Quaternion rot = Quaternion.LookRotation(desPos - closestShoe.startPos).normalized;
+            closestShoe.transform.rotation = Quaternion.Lerp(closestShoe.transform.rotation, rot, 5f * Time.deltaTime);
+        }
+
+        public void Stop(LeanFinger finger)
         {
             closestShoe.transform.position = closestShoe.startPos;
+            closestShoe.transform.rotation = closestShoe.startRot;
         }
     }
 }
