@@ -1122,7 +1122,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3446482407120367671}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9a698597a4a1f1840b4002532dd96279, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1654,8 +1654,6 @@ Transform:
   - {fileID: 8441548894965501962}
   - {fileID: 2006199294459020501}
   - {fileID: 5079595235080164371}
-  - {fileID: 5079595235363749423}
-  - {fileID: 5079595235721940667}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1694,8 +1692,8 @@ MonoBehaviour:
   rightShoe: {fileID: 8751256034115689167}
   leftShoe: {fileID: 1286825124363317492}
   leanFingerUpdate: {fileID: 5079595235080164368}
-  leanFingerDown: {fileID: 5079595235363749422}
-  leanFingerUp: {fileID: 5079595235721940666}
+  leanFingerDown: {fileID: 0}
+  leanFingerUp: {fileID: 0}
   closestShoe: {fileID: 0}
 --- !u!1 &4126665304935914919
 GameObject:
@@ -2043,9 +2041,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5079595235080164371}
+  - component: {fileID: 1965907804}
   - component: {fileID: 5079595235080164368}
+  - component: {fileID: 1965907803}
   m_Layer: 0
-  m_Name: LeanFingerUpdate
+  m_Name: Lean
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2066,6 +2066,50 @@ Transform:
   m_Father: {fileID: 4375101493145614527}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1965907804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5079595235080164381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb097c07812299498915a0a3e793843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ignoreStartedOverGui: 1
+  requiredButtons: -1
+  requiredSelectable: {fileID: 0}
+  onFinger:
+    m_PersistentCalls:
+      m_Calls: []
+  ScreenDepth:
+    Conversion: 1
+    Camera: {fileID: 0}
+    Object: {fileID: 0}
+    Layers:
+      serializedVersion: 2
+      m_Bits: 4294967291
+    Distance: 0
+  onWorld:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1092601735648237318}
+        m_TargetAssemblyTypeName: JuggleMaster.PlayerController, Assembly-CSharp
+        m_MethodName: FindClosestShoe
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onScreen:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5079595235080164368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2136,74 +2180,10 @@ MonoBehaviour:
       m_Calls: []
   onWorldDelta:
     m_PersistentCalls:
-      m_Calls: []
-  onWorldFromTo:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!1 &5079595235363749417
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5079595235363749423}
-  - component: {fileID: 5079595235363749422}
-  m_Layer: 0
-  m_Name: LeanFingerDown
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5079595235363749423
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5079595235363749417}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4375101493145614527}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5079595235363749422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5079595235363749417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbb097c07812299498915a0a3e793843, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ignoreStartedOverGui: 1
-  requiredButtons: -1
-  requiredSelectable: {fileID: 0}
-  onFinger:
-    m_PersistentCalls:
-      m_Calls: []
-  ScreenDepth:
-    Conversion: 0
-    Camera: {fileID: 0}
-    Object: {fileID: 0}
-    Layers:
-      serializedVersion: 2
-      m_Bits: 4294967291
-    Distance: 4
-  onWorld:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1092601735648237318}
         m_TargetAssemblyTypeName: JuggleMaster.PlayerController, Assembly-CSharp
-        m_MethodName: FindClosestShoe
+        m_MethodName: Test
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2213,48 +2193,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onScreen:
+  onWorldFromTo:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &5079595235721940645
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5079595235721940667}
-  - component: {fileID: 5079595235721940666}
-  m_Layer: 0
-  m_Name: LeanFingerUp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5079595235721940667
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5079595235721940645}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4375101493145614527}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5079595235721940666
+--- !u!114 &1965907803
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5079595235721940645}
+  m_GameObject: {fileID: 5079595235080164381}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 571b065edc65a4f41b4ea02b27b6113a, type: 3}
@@ -4558,7 +4506,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8528517775739267339}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9a698597a4a1f1840b4002532dd96279, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

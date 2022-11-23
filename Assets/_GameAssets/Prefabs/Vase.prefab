@@ -92,12 +92,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7790640618609950862}
-  - component: {fileID: 7790640618609950861}
+  - component: {fileID: 7518440182676360952}
   - component: {fileID: 7790640618609950860}
   - component: {fileID: 1505931614}
   m_Layer: 0
   m_Name: Vase
-  m_TagString: Untagged
+  m_TagString: Vase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,19 +118,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7790640618609950861
-BoxCollider:
+--- !u!136 &7518440182676360952
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7790640618609950963}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ff4aab295f9ebd14da26db2d05ca096f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.10163062, y: 0.3154261, z: 0.11943968}
-  m_Center: {x: 0.004017491, y: 0.15385222, z: 0.0050312355}
+  m_Radius: 0.06
+  m_Height: 0.3154416
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.1577208, z: 0}
 --- !u!54 &7790640618609950860
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -145,8 +146,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 10
-  m_CollisionDetection: 0
+  m_Constraints: 8
+  m_CollisionDetection: 1
 --- !u!114 &1505931614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 7790640618609950860}
-  col: {fileID: 7790640618609950861}
+  col: {fileID: 7518440182676360952}
   gameInitEvent: {fileID: 11400000, guid: 6bfa7280982f00d45bfe1e88d6b01654, type: 2}
   gameStartEvent: {fileID: 11400000, guid: f7ef8ee39f3578845857eb679ada6bb6, type: 2}
