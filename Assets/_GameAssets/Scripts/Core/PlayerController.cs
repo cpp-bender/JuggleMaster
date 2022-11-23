@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 using Lean.Touch;
 
 namespace JuggleMaster
@@ -9,20 +10,18 @@ namespace JuggleMaster
         public Shoe rightShoe;
         public Shoe leftShoe;
 
-        [Header("COMPONENTS")]
-        public LeanFingerUpdate leanFingerUpdate;
-        public LeanFingerDown leanFingerDown;
-        public LeanFingerUp leanFingerUp;
-
         [Header("DEBUG")]
         public Shoe closestShoe;
+
+        private void OnDestroy()
+        {
+            DOTween.Kill(transform);
+        }
 
         public void FindClosestShoe(Vector3 pos)
         {
             float f1 = (rightShoe.transform.position - pos).sqrMagnitude;
-
             float f2 = (leftShoe.transform.position - pos).sqrMagnitude;
-
             if (f1 < f2)
             {
                 closestShoe = rightShoe;
@@ -49,8 +48,10 @@ namespace JuggleMaster
 
         public void Stop(LeanFinger finger)
         {
-            closestShoe.transform.position = closestShoe.startPos;
-            closestShoe.transform.rotation = closestShoe.startRot;
+            Tween move = closestShoe.transform.DOMove(closestShoe.startPos, .25f);
+            Tween rotate = closestShoe.transform.DORotate(closestShoe.startRot.eulerAngles, .25f);
+            DOTween.Sequence().Append(move).Join(rotate)
+                .Play();
         }
     }
 }
