@@ -37,8 +37,8 @@ namespace JuggleMaster
 
         public void Kick(float power)
         {
-            body.AddForce(5f * Vector3.up, ForceMode.Impulse);
-            Debug.Log("Kicked");
+            float force = Mathf.Lerp(3f, 8f, power);
+            body.AddForce(force * Vector3.up, ForceMode.Impulse);
         }
     }
 }
