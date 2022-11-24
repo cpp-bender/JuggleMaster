@@ -35,7 +35,7 @@ namespace JuggleMaster
         public void Move(LeanFinger finger)
         {
             Vector3 desPos = finger.GetWorldPosition(4f);
-            desPos = new Vector3(Mathf.Clamp(desPos.x, -1f, 1f), Mathf.Clamp(desPos.y, 0f, 1f), 5f);
+            desPos = new Vector3(Mathf.Clamp(desPos.x, -1f, 1f), Mathf.Clamp(desPos.y, .1f, 2f), 5f);
             closestShoe.transform.position = Vector3.Lerp(closestShoe.transform.position, desPos, 5f * Time.deltaTime);
         }
 

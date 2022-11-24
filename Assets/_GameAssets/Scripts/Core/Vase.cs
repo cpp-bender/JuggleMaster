@@ -34,5 +34,11 @@ namespace JuggleMaster
         {
             body.isKinematic = true;
         }
+
+        public void Kick(float power)
+        {
+            body.AddForce(5f * Vector3.up, ForceMode.Impulse);
+            Debug.Log("Kicked");
+        }
     }
 }

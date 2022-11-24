@@ -646,10 +646,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5079595235363749422, guid: 8bd0fb34838591a438535032522880df, type: 3}
-      propertyPath: ScreenDepth.Camera
-      value: 
-      objectReference: {fileID: 1423261799}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bd0fb34838591a438535032522880df, type: 3}
 --- !u!1001 &7129231399601615875

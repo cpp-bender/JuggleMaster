@@ -1092,6 +1092,7 @@ GameObject:
   - component: {fileID: 2006199294459020501}
   - component: {fileID: 8436758194327411319}
   - component: {fileID: 8751256034115689167}
+  - component: {fileID: 8623142274655354103}
   m_Layer: 0
   m_Name: Right Shoe
   m_TagString: Untagged
@@ -1142,6 +1143,69 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: {x: 0, y: 0, z: 0}
   startRot: {x: 0, y: 0, z: 0, w: 0}
+  power: 0
+--- !u!114 &8623142274655354103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3446482407120367671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ca05b4057f181e4db28ff62498d46b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ignoreStartedOverGui: 1
+  ignoreIsOverGui: 0
+  ignoreIfStatic: 0
+  ignoreIfDown: 0
+  ignoreIfUp: 0
+  ignoreIfHover: 1
+  requiredSelectable: {fileID: 0}
+  onFinger:
+    m_PersistentCalls:
+      m_Calls: []
+  coordinate: 2
+  multiplier: 10
+  onDelta:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8751256034115689167}
+        m_TargetAssemblyTypeName: JuggleMaster.Shoe, Assembly-CSharp
+        m_MethodName: SetPower
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDistance:
+    m_PersistentCalls:
+      m_Calls: []
+  ScreenDepth:
+    Conversion: 1
+    Camera: {fileID: 0}
+    Object: {fileID: 0}
+    Layers:
+      serializedVersion: 2
+      m_Bits: 4294967291
+    Distance: 0
+  onWorldFrom:
+    m_PersistentCalls:
+      m_Calls: []
+  onWorldTo:
+    m_PersistentCalls:
+      m_Calls: []
+  onWorldDelta:
+    m_PersistentCalls:
+      m_Calls: []
+  onWorldFromTo:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3446957673621666314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,9 +1755,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightShoe: {fileID: 8751256034115689167}
   leftShoe: {fileID: 1286825124363317492}
-  leanFingerUpdate: {fileID: 5079595235080164368}
-  leanFingerDown: {fileID: 0}
-  leanFingerUp: {fileID: 0}
   closestShoe: {fileID: 0}
 --- !u!1 &4126665304935914919
 GameObject:
@@ -2156,7 +2217,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  coordinate: 0
+  coordinate: 1
   multiplier: 1
   onDelta:
     m_PersistentCalls:
@@ -2180,19 +2241,7 @@ MonoBehaviour:
       m_Calls: []
   onWorldDelta:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1092601735648237318}
-        m_TargetAssemblyTypeName: JuggleMaster.PlayerController, Assembly-CSharp
-        m_MethodName: Test
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onWorldFromTo:
     m_PersistentCalls:
       m_Calls: []
@@ -4476,6 +4525,7 @@ GameObject:
   - component: {fileID: 8441548894965501962}
   - component: {fileID: 3076069875207170602}
   - component: {fileID: 1286825124363317492}
+  - component: {fileID: 2953819349231818955}
   m_Layer: 0
   m_Name: Left Shoe
   m_TagString: Untagged
@@ -4526,6 +4576,69 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: {x: 0, y: 0, z: 0}
   startRot: {x: 0, y: 0, z: 0, w: 0}
+  power: 0
+--- !u!114 &2953819349231818955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8528517775739267339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ca05b4057f181e4db28ff62498d46b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ignoreStartedOverGui: 1
+  ignoreIsOverGui: 0
+  ignoreIfStatic: 0
+  ignoreIfDown: 0
+  ignoreIfUp: 0
+  ignoreIfHover: 1
+  requiredSelectable: {fileID: 0}
+  onFinger:
+    m_PersistentCalls:
+      m_Calls: []
+  coordinate: 2
+  multiplier: 10
+  onDelta:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1286825124363317492}
+        m_TargetAssemblyTypeName: JuggleMaster.Shoe, Assembly-CSharp
+        m_MethodName: SetPower
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDistance:
+    m_PersistentCalls:
+      m_Calls: []
+  ScreenDepth:
+    Conversion: 1
+    Camera: {fileID: 0}
+    Object: {fileID: 0}
+    Layers:
+      serializedVersion: 2
+      m_Bits: 4294967291
+    Distance: 0
+  onWorldFrom:
+    m_PersistentCalls:
+      m_Calls: []
+  onWorldTo:
+    m_PersistentCalls:
+      m_Calls: []
+  onWorldDelta:
+    m_PersistentCalls:
+      m_Calls: []
+  onWorldFromTo:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8615604156478238514
 GameObject:
   m_ObjectHideFlags: 0
