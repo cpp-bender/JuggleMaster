@@ -4,8 +4,11 @@ namespace JuggleMaster
 {
     public class Shoe : MonoBehaviour
     {
+        [Header("DEPENDENCIES")]
         public Vector3 startPos;
         public Quaternion startRot;
+
+        [Header("DEBUG")]
         public float power;
 
         private Vector3 vel = Vector3.zero;

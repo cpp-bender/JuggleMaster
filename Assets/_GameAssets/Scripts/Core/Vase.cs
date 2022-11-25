@@ -12,6 +12,7 @@ namespace JuggleMaster
         [Header("EVENTS")]
         public VoidEventChannelSO gameInitEvent;
         public VoidEventChannelSO gameStartEvent;
+        public VoidEventChannelSO kickVaseEvent;
 
         private void OnEnable()
         {
@@ -39,6 +40,7 @@ namespace JuggleMaster
         {
             float force = Mathf.Lerp(3f, 8f, power);
             body.AddForce(force * Vector3.up, ForceMode.Impulse);
+            kickVaseEvent.Raise();
         }
     }
 }

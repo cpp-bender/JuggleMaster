@@ -1,14 +1,13 @@
 using UnityEngine;
 using SimpleEvent;
 using DG.Tweening;
-using TMPro;
 
 namespace JuggleMaster
 {
     public class StartMenu : MonoBehaviour
     {
         [Header("DEPENDENCIES")]
-        public TextMeshProUGUI tapToPlayText;
+        public CanvasGroup canvasGroup;
 
         [Header("EVENTS")]
         public VoidEventChannelSO gameInitEvent;
@@ -28,12 +27,12 @@ namespace JuggleMaster
 
         private void OnGameInit()
         {
-            gameObject.SetActive(true);
+            canvasGroup.alpha = 1f;
         }
 
         private void OnGameStart()
         {
-            tapToPlayText.GetComponent<DOTweenAnimation>().DOPlay();
+            DOVirtual.Float(canvasGroup.alpha, 0f, .25f, x => canvasGroup.alpha = x).Play();
         }
     }
 }
