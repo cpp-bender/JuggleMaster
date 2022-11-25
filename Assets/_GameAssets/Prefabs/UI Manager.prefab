@@ -1121,11 +1121,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 6708711411899876947}
   counter: {fileID: 995997715}
-  currentStallsText: {fileID: 1504906532}
-  kickText: {fileID: 1582795509}
+  stallsCounter: {fileID: 1504906532}
+  kickCounter: {fileID: 1582795509}
   gameInitEvent: {fileID: 11400000, guid: 6bfa7280982f00d45bfe1e88d6b01654, type: 2}
   gameStartEvent: {fileID: 11400000, guid: f7ef8ee39f3578845857eb679ada6bb6, type: 2}
   kickVaseEvent: {fileID: 11400000, guid: 8ede781de7ca85d49b42f74d82376917, type: 2}
+  stallUpdateEvent: {fileID: 11400000, guid: 9b185acdbcb3bdd49980ef81813c8662, type: 2}
 --- !u!1 &2135364931
 GameObject:
   m_ObjectHideFlags: 0

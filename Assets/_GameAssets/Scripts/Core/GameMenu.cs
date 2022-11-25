@@ -1,7 +1,9 @@
+using System.Collections;
 using SimpleEvent;
 using UnityEngine;
 using DG.Tweening;
 using System.Text;
+using System;
 using TMPro;
 
 namespace JuggleMaster
@@ -13,22 +15,26 @@ namespace JuggleMaster
 
         [Header("DEPENDENCIES")]
         public Transform counter;
-        public TextMeshProUGUI currentStallsText;
-        public TextMeshProUGUI kickText;
+        public TextMeshProUGUI stallsCounter;
+        public TextMeshProUGUI kickCounter;
 
         [Header("EVENTS")]
         public VoidEventChannelSO gameInitEvent;
         public VoidEventChannelSO gameStartEvent;
         public VoidEventChannelSO kickVaseEvent;
+        public BoolEventChannelSO stallUpdateEvent;
 
         private int currentKick = 0;
         private int desKick = 10;
+
+        private bool updateStall;
 
         private void OnEnable()
         {
             gameInitEvent.Event += OnGameInit;
             gameStartEvent.Event += OnGameStart;
             kickVaseEvent.Event += OnVaseKicked;
+            stallUpdateEvent.Event += (bool arg) => updateStall = arg;
         }
 
         private void OnDisable()
@@ -36,6 +42,37 @@ namespace JuggleMaster
             gameInitEvent.Event -= OnGameInit;
             gameStartEvent.Event -= OnGameStart;
             kickVaseEvent.Event -= OnVaseKicked;
+            stallUpdateEvent.Event -= (bool arg) => updateStall = arg;
+        }
+
+        private IEnumerator UpdateStallRoutine()
+        {
+            float secs = 0f;
+            float speed = .1f;
+            while (true)
+            {
+                if (secs >= .5f)
+                {
+                    stallsCounter.color = Color.green;
+                    stallsCounter.transform.DOScale(1f, .25f)
+                    .SetRelative(true)
+                    .SetLoops(2, LoopType.Yoyo)
+                    .Play();
+                    yield break;
+                }
+
+                if (updateStall)
+                {
+                    secs += Time.deltaTime * speed;
+                    StringBuilder s = new StringBuilder();
+                    s.Append(TimeSpan.FromSeconds(secs).ToString(@"s\.ff"));
+                    s.Append("s");
+                    s.Append("/");
+                    s.Append("0.50s");
+                    stallsCounter.SetText(s.ToString());
+                }
+                yield return null;
+            }
         }
 
         private void OnVaseKicked()
@@ -49,12 +86,12 @@ namespace JuggleMaster
             s.Append("/");
             s.Append(desKick);
 
-            kickText.SetText(s.ToString());
+            kickCounter.SetText(s.ToString());
 
             if (currentKick == desKick)
             {
-                kickText.color = Color.green;
-                kickText.transform.DOScale(1f, .25f)
+                kickCounter.color = Color.green;
+                kickCounter.transform.DOScale(1f, .25f)
                     .SetRelative(true)
                     .SetLoops(2, LoopType.Yoyo)
                     .Play();
@@ -63,7 +100,29 @@ namespace JuggleMaster
 
         public void OnGameInit()
         {
+            HandleKickText();
+            HandleStallsText();
+            StartCoroutine(UpdateStallRoutine());
             canvasGroup.alpha = 0f;
+
+
+            void HandleStallsText()
+            {
+                StringBuilder s = new StringBuilder();
+                s.Append("0.00s");
+                s.Append("/");
+                s.Append("0.50s");
+                stallsCounter.SetText(s.ToString());
+            }
+
+            void HandleKickText()
+            {
+                StringBuilder s = new StringBuilder();
+                s.Append(currentKick);
+                s.Append("/");
+                s.Append(desKick);
+                kickCounter.SetText(s.ToString());
+            }
         }
 
         public void OnGameStart()

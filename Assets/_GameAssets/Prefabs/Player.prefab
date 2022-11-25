@@ -1157,6 +1157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: {x: 0, y: 0, z: 0}
   startRot: {x: 0, y: 0, z: 0, w: 0}
+  stallUpdateEvent: {fileID: 11400000, guid: 9b185acdbcb3bdd49980ef81813c8662, type: 2}
   power: 0
 --- !u!114 &8623142274655354103
 MonoBehaviour:
@@ -4578,6 +4579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: {x: 0, y: 0, z: 0}
   startRot: {x: 0, y: 0, z: 0, w: 0}
+  stallUpdateEvent: {fileID: 11400000, guid: 9b185acdbcb3bdd49980ef81813c8662, type: 2}
   power: 0
 --- !u!114 &2953819349231818955
 MonoBehaviour:

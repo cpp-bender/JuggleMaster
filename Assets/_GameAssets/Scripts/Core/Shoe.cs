@@ -1,3 +1,4 @@
+using SimpleEvent;
 using UnityEngine;
 
 namespace JuggleMaster
@@ -7,6 +8,9 @@ namespace JuggleMaster
         [Header("DEPENDENCIES")]
         public Vector3 startPos;
         public Quaternion startRot;
+
+        [Header("EVENTS")]
+        public BoolEventChannelSO stallUpdateEvent; 
 
         [Header("DEBUG")]
         public float power;
@@ -25,6 +29,24 @@ namespace JuggleMaster
             if (collision.gameObject.TryGetComponent(out vase) && power > 0f)
             {
                 vase.Kick(power);
+            }
+        }
+
+        private void OnCollisionStay(Collision collision)
+        {
+            Vase vase;
+            if (collision.gameObject.TryGetComponent(out vase))
+            {
+                stallUpdateEvent.Raise(true);
+            }
+        }
+
+        private void OnCollisionExit(Collision collision)
+        {
+            Vase vase;
+            if (collision.gameObject.TryGetComponent(out vase))
+            {
+                stallUpdateEvent.Raise(false);
             }
         }
 
