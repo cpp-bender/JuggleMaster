@@ -1377,3 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd8fa413660bafc4588330a7bfa09403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gemImage: {fileID: 453334074}
+  gemCounter: {fileID: 995997716}
+  gemPrefab: {fileID: 8719193344228860063, guid: 2ee66a66aa1d53f41a2c02341739caf9, type: 3}
+  collectGemEvent: {fileID: 11400000, guid: 012824ae38e7459428e66cc47032bd7c, type: 2}

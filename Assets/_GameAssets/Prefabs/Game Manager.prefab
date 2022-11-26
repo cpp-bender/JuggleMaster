@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aa37eb59c1c5c148b8faf09993861aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gem: {fileID: 7470067149999325923, guid: b75436f7ac4295044ac55ba6109a535c, type: 3}
   gameInitEvent: {fileID: 11400000, guid: 6bfa7280982f00d45bfe1e88d6b01654, type: 2}
   gameStartEvent: {fileID: 11400000, guid: f7ef8ee39f3578845857eb679ada6bb6, type: 2}

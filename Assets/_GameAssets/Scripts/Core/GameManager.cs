@@ -9,6 +9,10 @@ namespace HyperBase
     [DefaultExecutionOrder(-100)]
     public class GameManager : MonoBehaviour
     {
+        [Header("DEPENDENCIES")]
+        public GameObject gem;
+
+        [Header("EVENTS")]
         public VoidEventChannelSO gameInitEvent;
         public VoidEventChannelSO gameStartEvent;
 
@@ -19,6 +23,7 @@ namespace HyperBase
             gameInitEvent.Raise();
             yield return new WaitForMouseDown();
             gameStartEvent.Raise();
+            StartCoroutine(CreateGemRoutine());
         }
 
         private void InitDOTween()
@@ -43,6 +48,25 @@ namespace HyperBase
             DOTween.defaultRecyclable = true;
             DOTween.defaultTimeScaleIndependent = false;
             DOTween.defaultUpdateType = UpdateType.Normal;
+        }
+
+        private IEnumerator CreateGemRoutine()
+        {
+            int i = 0;
+            while (i < 3)
+            {
+                yield return new WaitForSeconds(Random.Range(1f, 3f));
+
+                float rndX = Random.Range(.2f, .8f);
+                float rndY = Random.Range(.4f, .8f);
+
+                Vector3 pos = Camera.main.ViewportToWorldPoint(new Vector3(rndX, rndY, 5f));
+                pos.z = 5f;
+                GameObject obj = Instantiate(gem);
+                obj.transform.position = pos;
+                i++;
+                yield return null;
+            }
         }
     }
 }

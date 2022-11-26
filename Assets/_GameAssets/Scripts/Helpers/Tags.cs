@@ -7,5 +7,6 @@ namespace HyperBase
         public static string ENEMY { get => "Enemy"; }
         public static string GROUND { get => "Ground"; }
         public static string VASE { get => "Vase"; }
+        public static string GEM { get => "Gem"; }
     }
 }
