@@ -8,6 +8,11 @@ namespace JuggleMaster
         [Header("EVENTS")]
         public Vector3EventChannelSO collectGemEvent;
 
+        private void FixedUpdate()
+        {
+            transform.Rotate(Vector3.up, Space.Self);
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             Vase vase;

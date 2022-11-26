@@ -32,7 +32,7 @@ namespace HyperBase
         {
             GameObject gem = Instantiate(gemPrefab, transform);
             gem.transform.position = Camera.main.WorldToScreenPoint(pos);
-            gem.transform.DOMove(gemImage.position, .5f)
+            gem.transform.DOMove(gemImage.position, .25f)
                 .OnComplete(() =>
                 {
                     Destroy(gem.gameObject);
