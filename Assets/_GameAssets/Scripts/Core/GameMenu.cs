@@ -26,7 +26,8 @@ namespace JuggleMaster
 
         private int currentKick = 0;
         private int desKick = 10;
-
+        private bool completeStall = false;
+        private bool completeKick = false;
         private bool updateStall;
 
         private void OnEnable()
@@ -53,6 +54,8 @@ namespace JuggleMaster
             {
                 if (secs >= .5f)
                 {
+                    completeStall = true;
+                    CheckLevelEnd();
                     stallsCounter.color = Color.green;
                     stallsCounter.transform.DOScale(1f, .25f)
                     .SetRelative(true)
@@ -90,6 +93,8 @@ namespace JuggleMaster
 
             if (currentKick == desKick)
             {
+                completeKick = true;
+                CheckLevelEnd();
                 kickCounter.color = Color.green;
                 kickCounter.transform.DOScale(1f, .25f)
                     .SetRelative(true)
@@ -129,6 +134,14 @@ namespace JuggleMaster
         {
             DOVirtual.Float(canvasGroup.alpha, 1f, .25f, x => canvasGroup.alpha = x).Play();
             counter.GetComponent<TextMeshProUGUI>().SetText("0");
+        }
+
+        public void CheckLevelEnd()
+        {
+            if (completeKick && completeStall)
+            {
+                Debug.Log("Level Win!");
+            }
         }
     }
 }

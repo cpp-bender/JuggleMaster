@@ -15,6 +15,7 @@ namespace HyperBase
         [Header("EVENTS")]
         public VoidEventChannelSO gameInitEvent;
         public VoidEventChannelSO gameStartEvent;
+        public VoidEventChannelSO levelFailEvent;
 
         private IEnumerator Start()
         {
@@ -24,6 +25,21 @@ namespace HyperBase
             yield return new WaitForMouseDown();
             gameStartEvent.Raise();
             StartCoroutine(CreateGemRoutine());
+        }
+
+        private void OnEnable()
+        {
+            levelFailEvent.Event += OnLevelFailed;
+        }
+
+        private void OnDisable()
+        {
+            levelFailEvent.Event -= OnLevelFailed;
+        }
+
+        private void OnLevelFailed()
+        {
+            Debug.Log("Level Failed");
         }
 
         private void InitDOTween()
