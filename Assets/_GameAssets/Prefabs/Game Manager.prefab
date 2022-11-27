@@ -48,3 +48,5 @@ MonoBehaviour:
   gameInitEvent: {fileID: 11400000, guid: 6bfa7280982f00d45bfe1e88d6b01654, type: 2}
   gameStartEvent: {fileID: 11400000, guid: f7ef8ee39f3578845857eb679ada6bb6, type: 2}
   levelFailEvent: {fileID: 11400000, guid: b811de2aea3abaf469a1abbbdc23f73e, type: 2}
+  levelWinEvent: {fileID: 11400000, guid: 50d0f82ea7a8da84a9cf8e93ed269c9b, type: 2}
+  tryAgainClickEvent: {fileID: 11400000, guid: 0aa194d959fbb28449678d69a8947bf9, type: 2}

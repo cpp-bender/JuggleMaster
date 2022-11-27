@@ -1,3 +1,4 @@
+using UnityEngine.SceneManagement;
 using DG.Tweening.Core.Enums;
 using System.Collections;
 using DG.Tweening;
@@ -16,6 +17,8 @@ namespace HyperBase
         public VoidEventChannelSO gameInitEvent;
         public VoidEventChannelSO gameStartEvent;
         public VoidEventChannelSO levelFailEvent;
+        public VoidEventChannelSO levelWinEvent;
+        public VoidEventChannelSO tryAgainClickEvent;
 
         private IEnumerator Start()
         {
@@ -30,16 +33,31 @@ namespace HyperBase
         private void OnEnable()
         {
             levelFailEvent.Event += OnLevelFailed;
+            levelWinEvent.Event += OnLevelWin;
+            tryAgainClickEvent.Event += OnLevelLoad;
         }
 
         private void OnDisable()
         {
             levelFailEvent.Event -= OnLevelFailed;
+            levelWinEvent.Event -= OnLevelWin;
+            tryAgainClickEvent.Event -= OnLevelLoad;
+        }
+
+        private void OnLevelWin()
+        {
+            StopCoroutine(CreateGemRoutine());
         }
 
         private void OnLevelFailed()
         {
+            StopCoroutine(CreateGemRoutine());
+        }
 
+        private void OnLevelLoad()
+        {
+            DOTween.Clear();
+            SceneManager.LoadScene(0);
         }
 
         private void InitDOTween()

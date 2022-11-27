@@ -1770,6 +1770,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightShoe: {fileID: 8751256034115689167}
   leftShoe: {fileID: 1286825124363317492}
+  levelWinEvent: {fileID: 11400000, guid: 50d0f82ea7a8da84a9cf8e93ed269c9b, type: 2}
+  levelFailEvent: {fileID: 11400000, guid: b811de2aea3abaf469a1abbbdc23f73e, type: 2}
   closestShoe: {fileID: 0}
 --- !u!1 &4126665304935914919
 GameObject:
