@@ -23,6 +23,7 @@ namespace JuggleMaster
         public VoidEventChannelSO gameStartEvent;
         public VoidEventChannelSO kickVaseEvent;
         public BoolEventChannelSO stallUpdateEvent;
+        public VoidEventChannelSO levelWinEvent;
 
         private int currentKick = 0;
         private int desKick = 10;
@@ -140,7 +141,8 @@ namespace JuggleMaster
         {
             if (completeKick && completeStall)
             {
-                Debug.Log("Level Win!");
+                DOVirtual.Float(canvasGroup.alpha, 0f, .25f, x => canvasGroup.alpha = x).Play();
+                levelWinEvent.Raise();
             }
         }
     }
