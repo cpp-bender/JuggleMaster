@@ -1,44 +1,36 @@
 using UnityEngine.UI;
-using DG.Tweening;
 using SimpleEvent;
 using UnityEngine;
 
 namespace JuggleMaster
 {
-    public class WinMenu : MonoBehaviour
+    public class FailMenu : MonoBehaviour
     {
         [Header("COMPONENTS")]
         public CanvasGroup canvasGroup;
-        public Image image;
 
         [Header("DEPENDENCIES")]
-        public Transform excellentPopup;
+        public Image bg;
 
         [Header("EVENTS")]
         public VoidEventChannelSO gameInitEvent;
-        public VoidEventChannelSO levelWinEvent;
+        public VoidEventChannelSO levelFailEvent;
 
         private void OnEnable()
         {
             gameInitEvent.Event += OnGameInit;
-            levelWinEvent.Event += OnLevelWin;
+            levelFailEvent.Event += OnLevelFailed;
         }
 
         private void OnDisable()
         {
             gameInitEvent.Event -= OnGameInit;
-            levelWinEvent.Event -= OnLevelWin;
+            levelFailEvent.Event -= OnLevelFailed;
         }
 
-        private void OnDestroy()
-        {
-            DOTween.Kill(transform);
-        }
-
-        private void OnLevelWin()
+        private void OnLevelFailed()
         {
             canvasGroup.alpha = 1f;
-            excellentPopup.DOScale(5f, .25f).SetLoops(2, LoopType.Yoyo).SetEase(Ease.OutQuad).Play();
         }
 
         private void OnGameInit()

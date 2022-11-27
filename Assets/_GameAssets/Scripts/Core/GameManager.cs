@@ -39,7 +39,7 @@ namespace HyperBase
 
         private void OnLevelFailed()
         {
-            Debug.Log("Level Failed");
+
         }
 
         private void InitDOTween()

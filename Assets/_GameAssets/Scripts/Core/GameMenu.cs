@@ -24,18 +24,21 @@ namespace JuggleMaster
         public VoidEventChannelSO kickVaseEvent;
         public BoolEventChannelSO stallUpdateEvent;
         public VoidEventChannelSO levelWinEvent;
+        public VoidEventChannelSO levelFailEvent;
 
-        private int currentKick = 0;
-        private int desKick = 10;
-        private bool completeStall = false;
-        private bool completeKick = false;
-        private bool updateStall;
+        [Header("DEBUG")]
+        public bool completeStall = false;
+        public bool completeKick = false;
+        public int currentKick = 0;
+        public int desKick = 10;
+        public bool updateStall;
 
         private void OnEnable()
         {
             gameInitEvent.Event += OnGameInit;
             gameStartEvent.Event += OnGameStart;
             kickVaseEvent.Event += OnVaseKicked;
+            levelFailEvent.Event += OnLevelFailed;
             stallUpdateEvent.Event += (bool arg) => updateStall = arg;
         }
 
@@ -44,6 +47,7 @@ namespace JuggleMaster
             gameInitEvent.Event -= OnGameInit;
             gameStartEvent.Event -= OnGameStart;
             kickVaseEvent.Event -= OnVaseKicked;
+            levelFailEvent.Event -= OnLevelFailed;
             stallUpdateEvent.Event -= (bool arg) => updateStall = arg;
         }
 
@@ -135,6 +139,11 @@ namespace JuggleMaster
         {
             DOVirtual.Float(canvasGroup.alpha, 1f, .25f, x => canvasGroup.alpha = x).Play();
             counter.GetComponent<TextMeshProUGUI>().SetText("0");
+        }
+        
+        private void OnLevelFailed()
+        {
+            canvasGroup.alpha = 0f;
         }
 
         public void CheckLevelEnd()
