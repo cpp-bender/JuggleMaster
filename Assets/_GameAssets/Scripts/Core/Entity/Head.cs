@@ -9,9 +9,18 @@ namespace JuggleMaster
         private void Start()
         {
             vase = FindObjectOfType<Vase>();
+            if (vase == null)
+            {
+                Debug.LogError("Vase not found");
+            }
         }
 
         private void FixedUpdate()
+        {
+            Look();
+        }
+
+        private void Look()
         {
             var lookDir = (vase.transform.position - transform.position).normalized;
             Quaternion dir = Quaternion.LookRotation(lookDir);

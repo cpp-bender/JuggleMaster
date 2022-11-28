@@ -145,6 +145,7 @@ MonoBehaviour:
   kickVaseEvent: {fileID: 11400000, guid: 8ede781de7ca85d49b42f74d82376917, type: 2}
   levelFailEvent: {fileID: 11400000, guid: b811de2aea3abaf469a1abbbdc23f73e, type: 2}
   completeAchivementEvent: {fileID: 11400000, guid: d907a22272e54ff4f8dca1c8a13f365b, type: 2}
+  testEvent: {fileID: 11400000, guid: 59975833b5f97b940b588289d5547a8e, type: 2}
   bounce:
     clip: {fileID: 8300000, guid: 6544672e73c248948bc19188c28cbfb8, type: 3}
     pitch: 1
@@ -160,4 +161,4 @@ MonoBehaviour:
   hold:
     clip: {fileID: 8300000, guid: 0e74b399a70918143ae0cc40c02ca7d9, type: 3}
     pitch: 1
-    loop: 1
+    loop: 0

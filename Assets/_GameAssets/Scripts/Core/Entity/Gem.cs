@@ -19,7 +19,7 @@ namespace JuggleMaster
             if (other.gameObject.TryGetComponent(out vase))
             {
                 collectGemEvent.Raise(transform.position);
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
     }

@@ -35,7 +35,7 @@ namespace HyperBase
             gem.transform.DOMove(gemImage.position, .25f)
                 .OnComplete(() =>
                 {
-                    Destroy(gem.gameObject);
+                    gem.gameObject.SetActive(false);
 
                     gemCount += 20;
                     gemCounter.SetText(gemCount.ToString());
