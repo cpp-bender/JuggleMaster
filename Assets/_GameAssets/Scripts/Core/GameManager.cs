@@ -12,6 +12,8 @@ namespace HyperBase
     {
         [Header("DEPENDENCIES")]
         public GameObject gem;
+        public GameObject rainbowLeft;
+        public GameObject rainbowRight;
 
         [Header("EVENTS")]
         public VoidEventChannelSO gameInitEvent;
@@ -26,6 +28,7 @@ namespace HyperBase
             Application.targetFrameRate = 60;
             InitDOTween();
             gameInitEvent.Raise();
+            SwitchConfettis(false);
             yield return new WaitForMouseDown();
             gameStartEvent.Raise();
             StartCoroutine(CreateGemRoutine());
@@ -49,7 +52,14 @@ namespace HyperBase
 
         private void OnLevelWin()
         {
+            SwitchConfettis(true);
             StopCoroutine(CreateGemRoutine());
+        }
+
+        private void SwitchConfettis(bool on)
+        {
+            rainbowLeft.SetActive(on);
+            rainbowRight.SetActive(on);
         }
 
         private void OnLevelFailed()
