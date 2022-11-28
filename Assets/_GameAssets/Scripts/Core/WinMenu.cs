@@ -17,6 +17,7 @@ namespace JuggleMaster
         [Header("EVENTS")]
         public VoidEventChannelSO gameInitEvent;
         public VoidEventChannelSO levelWinEvent;
+        public VoidEventChannelSO nextButtonClickEvent;
 
         private void OnEnable()
         {
@@ -37,6 +38,7 @@ namespace JuggleMaster
 
         private void OnLevelWin()
         {
+            canvasGroup.blocksRaycasts = true;
             canvasGroup.alpha = 1f;
             excellentPopup.DOScale(5f, .25f).SetLoops(2, LoopType.Yoyo).SetEase(Ease.OutQuad).Play();
         }
@@ -44,6 +46,11 @@ namespace JuggleMaster
         private void OnGameInit()
         {
             canvasGroup.alpha = 0f;
+        }
+        
+        public void OnNextButtonClicked()
+        {
+            nextButtonClickEvent.Raise();
         }
     }
 }

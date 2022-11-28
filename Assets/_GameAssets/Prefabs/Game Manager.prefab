@@ -50,3 +50,4 @@ MonoBehaviour:
   levelFailEvent: {fileID: 11400000, guid: b811de2aea3abaf469a1abbbdc23f73e, type: 2}
   levelWinEvent: {fileID: 11400000, guid: 50d0f82ea7a8da84a9cf8e93ed269c9b, type: 2}
   tryAgainClickEvent: {fileID: 11400000, guid: 0aa194d959fbb28449678d69a8947bf9, type: 2}
+  nextButtonClickEvent: {fileID: 11400000, guid: 1bd70b3a6167e064c90d043f4baeda05, type: 2}

@@ -19,6 +19,7 @@ namespace HyperBase
         public VoidEventChannelSO levelFailEvent;
         public VoidEventChannelSO levelWinEvent;
         public VoidEventChannelSO tryAgainClickEvent;
+        public VoidEventChannelSO nextButtonClickEvent;
 
         private IEnumerator Start()
         {
@@ -35,6 +36,7 @@ namespace HyperBase
             levelFailEvent.Event += OnLevelFailed;
             levelWinEvent.Event += OnLevelWin;
             tryAgainClickEvent.Event += OnLevelLoad;
+            nextButtonClickEvent.Event += OnLevelLoad;
         }
 
         private void OnDisable()
@@ -42,6 +44,7 @@ namespace HyperBase
             levelFailEvent.Event -= OnLevelFailed;
             levelWinEvent.Event -= OnLevelWin;
             tryAgainClickEvent.Event -= OnLevelLoad;
+            nextButtonClickEvent.Event -= OnLevelLoad;
         }
 
         private void OnLevelWin()
