@@ -63,6 +63,7 @@ namespace JuggleMaster
         public void SetPower(Vector2 delta)
         {
             power = delta.y;
+            power = Mathf.Clamp(power, 0f, 1f);
         }
     }
 }
