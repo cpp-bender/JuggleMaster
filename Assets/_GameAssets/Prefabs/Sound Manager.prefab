@@ -146,6 +146,7 @@ MonoBehaviour:
   levelFailEvent: {fileID: 11400000, guid: b811de2aea3abaf469a1abbbdc23f73e, type: 2}
   completeAchivementEvent: {fileID: 11400000, guid: d907a22272e54ff4f8dca1c8a13f365b, type: 2}
   playHoldSoundEvent: {fileID: 11400000, guid: 61ff645ff4fffbb40ae1e68f0d6de8b3, type: 2}
+  stopHoldSoundEvent: {fileID: 11400000, guid: 3c6e1240610b36e46bc6e32dcb9cff7f, type: 2}
   bounce:
     clip: {fileID: 8300000, guid: 6544672e73c248948bc19188c28cbfb8, type: 3}
     pitch: 1
@@ -159,6 +160,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
   hold:
-    clip: {fileID: 0}
-    pitch: 0
-    loop: 0
+    clip: {fileID: 8300000, guid: 0e74b399a70918143ae0cc40c02ca7d9, type: 3}
+    pitch: 1
+    loop: 1

@@ -420,18 +420,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1664030562, guid: c9e59f5f761f4c941be2aadbbcfcf10c, type: 3}
-      propertyPath: hold.clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 0e74b399a70918143ae0cc40c02ca7d9, type: 3}
-    - target: {fileID: 1664030562, guid: c9e59f5f761f4c941be2aadbbcfcf10c, type: 3}
-      propertyPath: hold.loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664030562, guid: c9e59f5f761f4c941be2aadbbcfcf10c, type: 3}
-      propertyPath: hold.pitch
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2541301863075705884, guid: c9e59f5f761f4c941be2aadbbcfcf10c, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -643,10 +631,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1286825124363317492, guid: 8bd0fb34838591a438535032522880df, type: 3}
-      propertyPath: playHoldSoundEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 61ff645ff4fffbb40ae1e68f0d6de8b3, type: 2}
     - target: {fileID: 4034287434941981189, guid: 8bd0fb34838591a438535032522880df, type: 3}
       propertyPath: m_Name
       value: Player
@@ -695,10 +679,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8751256034115689167, guid: 8bd0fb34838591a438535032522880df, type: 3}
-      propertyPath: playHoldSoundEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 61ff645ff4fffbb40ae1e68f0d6de8b3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bd0fb34838591a438535032522880df, type: 3}
 --- !u!1001 &7129231399601615875

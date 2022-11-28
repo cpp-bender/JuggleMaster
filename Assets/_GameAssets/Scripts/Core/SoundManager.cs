@@ -13,7 +13,6 @@ namespace JuggleMaster
         public VoidEventChannelSO kickVaseEvent;
         public VoidEventChannelSO levelFailEvent;
         public VoidEventChannelSO completeAchivementEvent;
-        public VoidEventChannelSO playHoldSoundEvent;
 
         [Header("SOUNDS")]
         public Sound bounce;
@@ -26,7 +25,6 @@ namespace JuggleMaster
             kickVaseEvent.Event += OnVaseKicked;
             levelFailEvent.Event += OnLevelFailed;
             completeAchivementEvent.Event += OnAchivementComplete;
-            playHoldSoundEvent.Event += PlayHoldSound;
         }
 
         private void OnDisable()
@@ -34,7 +32,6 @@ namespace JuggleMaster
             kickVaseEvent.Event -= OnVaseKicked;
             levelFailEvent.Event -= OnLevelFailed;
             completeAchivementEvent.Event -= OnAchivementComplete;
-            playHoldSoundEvent.Event -= PlayHoldSound;
         }
 
         private void OnAchivementComplete()
@@ -53,14 +50,6 @@ namespace JuggleMaster
         {
             audioSource.pitch = 1f;
             audioSource.PlayOneShot(levelFail.clip);
-        }
-        
-        private void PlayHoldSound()
-        {
-            audioSource.clip = hold.clip;
-            audioSource.pitch = hold.pitch;
-            audioSource.loop = hold.loop;
-            audioSource.Play();
         }
 
         [Serializable]
