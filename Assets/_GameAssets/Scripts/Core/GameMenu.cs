@@ -25,6 +25,7 @@ namespace JuggleMaster
         public BoolEventChannelSO stallUpdateEvent;
         public VoidEventChannelSO levelWinEvent;
         public VoidEventChannelSO levelFailEvent;
+        public VoidEventChannelSO completeAchivementEvent;
 
         [Header("DEBUG")]
         public bool completeStall = false;
@@ -59,6 +60,7 @@ namespace JuggleMaster
             {
                 if (secs >= .5f)
                 {
+                    completeAchivementEvent.Raise();
                     completeStall = true;
                     CheckLevelEnd();
                     stallsCounter.color = Color.green;
@@ -98,6 +100,7 @@ namespace JuggleMaster
 
             if (currentKick == desKick)
             {
+                completeAchivementEvent.Raise();
                 completeKick = true;
                 CheckLevelEnd();
                 kickCounter.color = Color.green;

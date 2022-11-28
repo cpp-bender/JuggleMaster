@@ -1779,6 +1779,7 @@ MonoBehaviour:
   stallUpdateEvent: {fileID: 11400000, guid: 9b185acdbcb3bdd49980ef81813c8662, type: 2}
   levelWinEvent: {fileID: 11400000, guid: 50d0f82ea7a8da84a9cf8e93ed269c9b, type: 2}
   levelFailEvent: {fileID: 11400000, guid: b811de2aea3abaf469a1abbbdc23f73e, type: 2}
+  completeAchivementEvent: {fileID: 11400000, guid: d907a22272e54ff4f8dca1c8a13f365b, type: 2}
   completeStall: 0
   completeKick: 0
   currentKick: 0

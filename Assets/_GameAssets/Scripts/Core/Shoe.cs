@@ -10,12 +10,14 @@ namespace JuggleMaster
         public Quaternion startRot;
 
         [Header("EVENTS")]
-        public BoolEventChannelSO stallUpdateEvent; 
+        public BoolEventChannelSO stallUpdateEvent;
+        public VoidEventChannelSO playHoldSoundEvent;
 
         [Header("DEBUG")]
         public float power;
 
         private Vector3 vel = Vector3.zero;
+        private bool canPlayHoldSound = true;
 
         private void Awake()
         {
@@ -38,6 +40,11 @@ namespace JuggleMaster
             if (collision.gameObject.TryGetComponent(out vase))
             {
                 stallUpdateEvent.Raise(true);
+                if (canPlayHoldSound)
+                {
+                    canPlayHoldSound = false;
+                    playHoldSoundEvent.Raise();
+                }
             }
         }
 
@@ -47,6 +54,7 @@ namespace JuggleMaster
             if (collision.gameObject.TryGetComponent(out vase))
             {
                 stallUpdateEvent.Raise(false);
+                canPlayHoldSound = true;
             }
         }
 
