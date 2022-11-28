@@ -34,6 +34,7 @@ namespace JuggleMaster
             Vase vase;
             if (canCollide && collision.gameObject.TryGetComponent(out vase))
             {
+                vase.gameObject.SetActive(false);
                 levelFailEvent.Raise();
                 col.enabled = false;
             }

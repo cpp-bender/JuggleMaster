@@ -14,6 +14,7 @@ namespace HyperBase
         public GameObject gem;
         public GameObject rainbowLeft;
         public GameObject rainbowRight;
+        public GameObject failFX;
 
         [Header("EVENTS")]
         public VoidEventChannelSO gameInitEvent;
@@ -29,6 +30,7 @@ namespace HyperBase
             InitDOTween();
             gameInitEvent.Raise();
             SwitchConfettis(false);
+            SwitchFailFX(false);
             yield return new WaitForMouseDown();
             gameStartEvent.Raise();
             StartCoroutine(CreateGemRoutine());
@@ -62,8 +64,14 @@ namespace HyperBase
             rainbowRight.SetActive(on);
         }
 
+        private void SwitchFailFX(bool on)
+        {
+            failFX.SetActive(on);
+        }
+
         private void OnLevelFailed()
         {
+            SwitchFailFX(true);
             StopCoroutine(CreateGemRoutine());
         }
 
